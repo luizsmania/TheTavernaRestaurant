@@ -14,12 +14,9 @@ def menu(request):
     return render(request, 'menu.html')
 
 
+@login_required(login_url='login')
 def book_table(request):
     form = ReservationForm()
-    if not request.user.is_authenticated:
-        messages.success(request,
-                         'You need to login in order to book a table.')
-        return redirect('login')
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -43,6 +40,7 @@ def book_table(request):
     return render(request, 'book_table.html', {'form': form})
 
 
+@login_required(login_url='login')
 def delete_reservation(request, id):
     reservation = Reservation.objects.get(id=id)
     reservation.delete()
@@ -50,6 +48,7 @@ def delete_reservation(request, id):
     return redirect('user_page')
 
 
+@login_required(login_url='login')
 def update_reservation(request, id):
     form = ReservationForm()
     if request.method == 'POST':
@@ -67,11 +66,13 @@ def update_reservation(request, id):
     return render(request, 'book_table.html', {'form': form})
 
 
+@login_required(login_url='login')
 def user_page(request):
     reservations = Reservation.objects.filter(user=request.user)
     return render(request, 'user_page.html', {'reservations': reservations})
 
 
+@login_required(login_url='login')
 def menu_items(request):
     return render(request, 'menu_items.html')
 

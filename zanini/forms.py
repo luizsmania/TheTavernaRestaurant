@@ -3,7 +3,6 @@ from django.forms import EmailInput, TextInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Reservation
-from django.shortcuts import render
 from datetime import date
 
 
@@ -45,14 +44,14 @@ class RegisterForm(UserCreationForm):
 
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
-           
+
     password1 = forms.CharField(
         label="Password",
-        widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password', 'placeholder':'password', 'style': 'max-width: 300px;'}),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password', 'placeholder': 'password', 'style': 'max-width: 300px;'}),
     )
     password2 = forms.CharField(
         label="Confirm password",
-        widget=forms.PasswordInput(attrs={'class':'form-control', 'type':'password', 'placeholder':'password', 'style': 'max-width: 300px;',}),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password', 'placeholder': 'password', 'style': 'max-width: 300px;', }),
     )
 
     class Meta:
@@ -63,15 +62,15 @@ class RegisterForm(UserCreationForm):
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Username'
-                }),
+            }),
             'first_name': TextInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'First Name'
-                }),
+            }),
             'email': EmailInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Email'
-                }),
+            }),
         }
