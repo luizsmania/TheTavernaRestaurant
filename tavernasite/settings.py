@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
-    'cloudinary',
     'bootstrap4',
     'taverna',
     'fontawesomefree',
