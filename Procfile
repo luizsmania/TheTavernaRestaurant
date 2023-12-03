@@ -1,1 +1,1 @@
-web gunicorn thetavernarestaurant.wsig:application --log-file -
+web: gunicorn TheTavernaRestaurant.wsgi
