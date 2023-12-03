@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-edrh@_12f2n#tjohalc_z5xjhg&4z^e%4t3ce*3a7%bv&sg)d5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mytavernrestaurant-fcc6f699d784.herokuapp.com']
+ALLOWED_HOSTS = ['mytavernrestaurant-fcc6f699d784.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -117,6 +117,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
