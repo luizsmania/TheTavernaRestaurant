@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'tavernasite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
- }
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,  # Adjust the conn_max_age as needed
+        engine='django.db.backends.postgresql',
+    )
+}
 
 
 # Password validation
