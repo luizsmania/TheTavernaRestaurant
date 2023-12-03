@@ -19,7 +19,7 @@ def book_table(request):
     if not request.user.is_authenticated:
         messages.success(request,
                          'You need to login in order to book a table.')
-        return redirect('login') 
+        return redirect('login')
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -29,8 +29,8 @@ def book_table(request):
 
             if Reservation.check_table_avaliability(table_size, booking_time, date):
                 reservation = Reservation(date=date,
-                                        table_size=table_size,
-                                        booking_time=booking_time)
+                                          table_size=table_size,
+                                          booking_time=booking_time)
                 if not Reservation.objects.filter(user=request.user).exists():
                     reservation.user = request.user
                     reservation.save()
@@ -43,19 +43,19 @@ def book_table(request):
     return render(request, 'book_table.html', {'form': form})
 
 
-def delete_reservation(request,id):
-    reservation = Reservation.objects.get(id=id) 
+def delete_reservation(request, id):
+    reservation = Reservation.objects.get(id=id)
     reservation.delete()
     messages.success(request, 'Reservation cancelled successfully')
     return redirect('user_page')
 
 
-def update_reservation(request,id):
+def update_reservation(request, id):
     form = ReservationForm()
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
-            reservation = Reservation.objects.get(id=id) 
+            reservation = Reservation.objects.get(id=id)
             reservation.table_size = form.cleaned_data.get("table_size")
             reservation.booking_time = form.cleaned_data.get("booking_time")
             reservation.date = form.cleaned_data.get("date")
@@ -78,11 +78,11 @@ def menu_items(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = LoginForm(request.POST) 
+        form = LoginForm(request.POST)
         if form.is_valid():
             user = authenticate(
-            username =form.cleaned_data['username'],
-            password =form.cleaned_data['password'],
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password'],
             )
             if user is not None:
                 login(request, user)
@@ -98,7 +98,7 @@ def logout_view(request):
     return redirect('home')
 
 
-def register_view(request):      
+def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
