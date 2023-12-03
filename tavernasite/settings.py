@@ -15,7 +15,6 @@ SECRET_KEY = 'django-insecure-edrh@_12f2n#tjohalc_z5xjhg&4z^e%4t3ce*3a7%bv&sg)d5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['mytavernrestaurant-fcc6f699d784.herokuapp.com', '127.0.0.1']
 
 
@@ -34,6 +33,9 @@ INSTALLED_APPS = [
     'bootstrap4',
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_SAVE_EVERY_REQUEST = True  # Adjust as needed
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
@@ -45,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 ROOT_URLCONF = 'tavernasite.urls'
