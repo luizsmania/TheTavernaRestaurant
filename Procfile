@@ -1,0 +1,1 @@
+web gunicorn thetavernarestaurant.wsig:application --log-file -
