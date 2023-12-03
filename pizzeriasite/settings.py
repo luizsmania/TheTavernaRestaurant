@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-edrh@_12f2n#tjohalc_z5xjhg&4z^e%4t3ce*3a7%bv&sg)d5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://mytavernrestaurant-fcc6f699d784.herokuapp.com/']
+ALLOWED_HOSTS = ['mytavernrestaurant-fcc6f699d784.herokuapp.com']
 
 
 # Application definition
