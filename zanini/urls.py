@@ -15,5 +15,4 @@ urlpatterns = [
     path('menu_items/', views.menu_items, name='menu_items'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-    path('your-view/', your_view, name='your_view'),
 ]

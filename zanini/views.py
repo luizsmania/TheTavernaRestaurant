@@ -119,9 +119,3 @@ def delete_account(request):
     user.delete()
     messages.success(request, "The user is deleted")
     return redirect('home')
-    
-def your_view(request):
-    # Your logic to retrieve the user object
-    user = request.user
-
-    return render(request, 'your_template.html', {'user': user})
